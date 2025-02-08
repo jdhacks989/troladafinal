@@ -10,8 +10,8 @@
             text-align: center;
             background-image: url('https://upload.wikimedia.org/wikipedia/en/6/60/Trollface_non-free.png');
             background-repeat: repeat;
-            overflow: auto; /* Barra de rolagem ativada */
-            height: 100vh; /* Garante que a rolagem funcione mesmo que o conteúdo seja maior */
+            overflow: auto;
+            height: 100vh;
             margin: 0;
         }
         .container {
@@ -20,10 +20,6 @@
             border: 5px solid red;
             padding: 20px;
             background-color: #222;
-        }
-        .marquee {
-            font-size: 20px;
-            font-weight: bold;
         }
         .blink {
             animation: blinker 1s linear infinite;
@@ -36,43 +32,61 @@
 <body>
     <div class="container">
         <h1 class="blink">🚨 A TROLADA FINAL 🚨</h1>
-        <marquee class="marquee">Fiquem atentos! Algo épico vai acontecer no Colégio Adventista Marechal Rondon! 😂</marquee>
         <p>Se preparem para uma trollagem inesquecível! 🔥</p>
-        <p>Data: 10 de outubro</p>
-        <p>Local: CAMAR</p>
-        <p>Motivo: Porque sim! 😆</p>
-        <p>Quem estará por trás disso? 🤔 <b>X777</b></p>
         <p><b>Fiquem ligados! Isso vai ser HISTÓRICO!</b></p>
 
         <div>
             <h3>Fita 1</h3>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/kwuqtY-ByrA" frameborder="0" allowfullscreen></iframe>
         </div>
-
         <div>
             <h3>Fita 2</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dZ2Ug0Vs1A0?si=UzoCCAjiXa3UFDoA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/dZ2Ug0Vs1A0" frameborder="0" allowfullscreen></iframe>
         </div>
-
         <div>
             <h3>Fita 3</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/66YTsK3x-ZE?si=p7lbmqzIDb2fZGFv" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/66YTsK3x-ZE" frameborder="0" allowfullscreen></iframe>
         </div>
-
         <div>
             <h3>Fita 4</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Lf-FZPcUcF4?si=odsUXAgBJIACr--q" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Lf-FZPcUcF4" frameborder="0" allowfullscreen></iframe>
         </div>
-
         <div>
             <h3>Fita 5</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/TzBQUkqnBKQ?si=o9AOX_M4a7wQvpF9" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TzBQUkqnBKQ" frameborder="0" allowfullscreen></iframe>
         </div>
-        
         <div>
             <h3>Fita 6</h3>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/eUUsiK0N-uI" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
+    
+    <button onclick="startTroll()">NÃO CLIQUE AQUI</button>
+
+    <audio id="atumalaca" src="https://www.myinstants.com/media/sounds/atumalaca.mp3" preload="auto"></audio>
+
+    <script>
+        function startTroll() {
+            document.getElementById('atumalaca').play();
+            openTrollPopup();
+        }
+
+        function openTrollPopup() {
+            let width = 300;
+            let height = 200;
+            let left = Math.floor(Math.random() * (window.innerWidth - width));
+            let top = Math.floor(Math.random() * (window.innerHeight - height));
+            let trollWindow = window.open('', '', `width=${width},height=${height},left=${left},top=${top}`);
+            if (trollWindow) {
+                trollWindow.document.write('<!DOCTYPE html><html><head><title>TROLADO!</title></head><body style="background-color:black;color:red;text-align:center;">');
+                trollWindow.document.write('<h1>😂 TROLLADO! 😂</h1>');
+                trollWindow.document.write('<img src="https://upload.wikimedia.org/wikipedia/en/6/60/Trollface_non-free.png" width="200">');
+                trollWindow.document.write('</body></html>');
+                trollWindow.onbeforeunload = function() {
+                    setTimeout(openTrollPopup, 300);
+                };
+            }
+        }
+    </script>
 </body>
 </html>
